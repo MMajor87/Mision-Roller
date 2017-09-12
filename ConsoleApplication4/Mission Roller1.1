@@ -1,0 +1,96 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+
+
+    class Program
+    {
+
+
+
+
+        /*
+        static void Main()
+        {
+
+           
+
+            
+            Console.ReadLine();
+        }
+        */
+        static void Main()
+        {
+            int xnum; // result of D4 rolled
+
+            int D;
+
+            Random rand = new Random();
+
+            //Roll 1d4 to equal x
+            xnum = rand.Next(1, 5);
+
+            int[] listOrder = new int[xnum]; // array of roll results to derrmine lists
+            int[] chartNum = new int[xnum]; // Result of d100 chart roll.
+
+            //Roll x number of d3's to detirmine the lists to pull from.                              
+            for (int i = 0; i < xnum; i++)
+            {
+                listOrder[i] = rand.Next(1, 4);
+            }
+
+
+            //Roll x number of D100's to get list result.
+            for (int i = 0; i < xnum; i++)
+            {
+                chartNum[i] = rand.Next(1, 101);
+            }
+
+
+
+            Console.WriteLine(xnum);
+            Console.WriteLine("----------------------");
+
+
+            for (int i = 0; i < listOrder.Length; i++) //output Chart numrs to pull from.
+            {
+                Console.WriteLine(listOrder[i]);
+            }
+
+            Console.WriteLine("----------------------");
+
+            for (int i = 0; i < chartNum.Length; i++) //Output D100 chart numbers.
+            {
+                Console.WriteLine(chartNum[i]);
+            }
+
+
+
+
+
+
+            Console.WriteLine("----------------------");
+
+            D = rand.Next(1, 11);//Roll D10
+
+            Console.WriteLine(D); //outpud D10
+
+            Console.WriteLine("----------------------");
+
+            Console.WriteLine("Would you like to roll again?");
+            Console.WriteLine();
+
+            string restart = Console.ReadLine();
+            Console.WriteLine();
+            if (restart == "y")
+            {
+                Main();
+            }
+        }
+    }
+}
